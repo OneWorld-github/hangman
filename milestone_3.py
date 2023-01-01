@@ -91,12 +91,11 @@ def check_guess(guess, secret_word):
     
 
 def ask_for_input(secret_word):
-    not_correct = True
-    while not_correct:
+    while True:
         guess = input("Guess a letter")
         if len(guess) == 1 and guess.isalpha:
             print("Good Guess")
-            not_correct = False
+            break
         else:
             print("Invalid letter, please enter a single alphabetical character")
     check_guess(guess, secret_word)
