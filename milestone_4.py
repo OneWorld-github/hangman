@@ -84,7 +84,3 @@ class Hangman:
 #Step2
 new_game = Hangman(word='word', word_list=['a', 'word', 'or', 'two'])
 new_game.ask_for_input()
-
-
-
-# %%

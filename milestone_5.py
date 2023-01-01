@@ -22,73 +22,65 @@
 # that means the user has won the game. Print a message saying 'Congratulations. You won the game!'.
 
 
-# Milestone 4
 import random
 
-#Task 1
 class Hangman:
-    def __init__(self, word_list):
+    def __init__(self, word_list=['a', 'word', 'or', 'two'], num_lives=9):
         self.word = random.choice(word_list)
         self.word_list = word_list
         self.word_guessed = ['_'] * len(self.word)
         self.num_letters = len(self.word)
-        self.num_lives = 9 # like a cat.
+        self.num_lives = num_lives
         self.list_of_guesses = []
         
-
     def check_guess(self):
         self.guess.lower()
         if self.guess in self.word:
             print(f"Good guess! {self.guess} is in the word")
             
-            for index, letter in enumerate(self.word_guessed):
+            for index, letter in enumerate(self.word):
                 if letter == self.guess:
                     self.word_guessed[index] = self.guess
-            self.num_letters -= 1
+                    self.num_letters -= 1
         
         else:
             self.num_lives -= 1
             print(f"Sorry, {self.guess} is not in the word.")
-            print(f" You have {self.num_lives} left.")
+            print(f" You have {self.num_lives} lives left.")
+            
             self.list_of_guesses.append(self.guess)
             
-            
     def ask_for_input(self):
-        not_correct = True
-        while not_correct:
-            self.guess = input("Guess a letter")
+        while True:
+            
+            self.guess = input("Guess a letter ")
             if len(self.guess) == 1 and self.guess.isalpha and self.guess not in self.list_of_guesses:
                 print("Good Guess, it's a single character, and you've not guessed this one yet")
                 self.list_of_guesses.append(self.guess)
                 self.check_guess()
-                not_correct = False
-                
-
+                break
+            if len(self.guess) > 1:
+                print("please guess a single character")
+            if not self.guess.isalpha:
+                print("please guess an alphabetic character")
             elif self.guess in self.list_of_guesses:
                 print("You have already tried this letter")
             else:
-                print("Try another letter ?")
-
+                print("Try another letter ?")        
                 
+def play_game():
+    game = Hangman()
+    while True:
+        if game.num_lives == 0:
+            print('You lost!')
+            break
+        elif game.num_letters > 0:
+            print("The word you have to guess: ", game.word_guessed)
+            game.ask_for_input()
             
-                
-    def play_game(word_list):
-        game = Hangman(word_list)
-        alive = True
-        while alive:
-            if game.num_lives == 0:
-                print('You lost!')
-                alive = False
-            if game.num_letters > 0:
-                game.ask_for_input()
-            if game.num_lives != 0 and game.num_letters <= 0:
-                print('Congratulations. You won the game!')
-                alive = False
-            
+        elif game.num_lives != 0 and game.num_letters < 1:
+            print("Welldone, the word was: ", )
+            print('Congratulations. You won the game!, The Word Was: ', ''.join(game.word_guessed))
+            break
 
-
-Hangman.play_game(word_list=['a', 'word', 'or', 'two'])
-
-
-
-
+play_game()
