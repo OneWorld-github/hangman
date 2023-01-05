@@ -54,14 +54,14 @@ class Hangman:
         while True:
             
             self.guess = input("Guess a letter ")
-            if len(self.guess) == 1 and self.guess.isalpha and self.guess not in self.list_of_guesses:
+            if len(self.guess) == 1 and self.guess.isalpha() and self.guess not in self.list_of_guesses:
                 print("Good Guess, it's a single character, and you've not guessed this one yet")
                 self.list_of_guesses.append(self.guess)
                 self.check_guess()
                 break
             if len(self.guess) > 1:
                 print("please guess a single character")
-            if not self.guess.isalpha:
+            if not self.guess.isalpha():
                 print("please guess an alphabetic character")
             elif self.guess in self.list_of_guesses:
                 print("You have already tried this letter")
