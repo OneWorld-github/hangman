@@ -81,8 +81,8 @@
 # your code.
 
 # %%
-
-def check_guess(guess, word):
+word = 'apple'
+def check_guess(guess):
     guess.lower()
     if guess in word:
         print(f"Good guess! {guess} is in the word")
@@ -98,7 +98,7 @@ def ask_for_input(word):
             break
         else:
             print("Invalid letter, please enter a single alphabetical character")
-    check_guess(guess, word)
+    check_guess(guess)
 
-ask_for_input('apple')
+ask_for_input(word)
 
