@@ -70,7 +70,7 @@
 # the word into this function block.
 
 # The ask_for_input.
-# Step 1. Define a function called ask_for_input.
+# Step 1. Define a function called ask_for_input
 # Step 2. Move the code that you wrote in the Iteratively check if the 
 # input is a valid guess task into this function block.
 # Step 3. Outside the while loop, but within this function, call the 
@@ -82,24 +82,23 @@
 
 # %%
 
-def check_guess(guess, secret_word):
+def check_guess(guess, word):
     guess.lower()
-    if guess in secret_word:
+    if guess in word:
         print(f"Good guess! {guess} is in the word")
     else:
         print(f"Sorry, {guess} is not in the word. Try again.")
     
 
-def ask_for_input(secret_word):
+def ask_for_input(word):
     while True:
         guess = input("Guess a letter")
-        if len(guess) == 1 and guess.isalpha:
+        if len(guess) == 1 and guess.isalpha():
             print("Good Guess")
             break
         else:
             print("Invalid letter, please enter a single alphabetical character")
-    check_guess(guess, secret_word)
+    check_guess(guess, word)
 
 ask_for_input('apple')
 
-# %%
