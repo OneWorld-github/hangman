@@ -35,8 +35,8 @@ class Hangman:
             # In the if block, replace the corresponding "_" in the word_guessed with the guess. HINT: You can index the word_guessed at the position of the letter and assign it to the letter.
             # Outside the for-loop, reduce the variable num_letters by 1.
             
-            for index, letter in enumerate(self.word_guessed):
-                if letter == guess:
+            for index, letter in enumerate(self.word):
+                if letter == self.guess:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
             print(f"The word is now {self.word_guessed}")
@@ -83,4 +83,5 @@ class Hangman:
 num_lives = 9
 word_list = ['blueberries', 'raspberries', 'kiwi', 'orange', 'pear']
 new_game = Hangman(num_lives, word_list)
+print("The word you have to guess is :- ", new_game.word_guessed)
 new_game.ask_for_input()
