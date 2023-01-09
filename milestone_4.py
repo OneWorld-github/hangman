@@ -36,7 +36,7 @@ class Hangman:
             # Outside the for-loop, reduce the variable num_letters by 1.
             
             for index, letter in enumerate(self.word_guessed):
-                if letter == self.guess:
+                if letter == guess:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
         
