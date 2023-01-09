@@ -22,10 +22,10 @@ class Hangman:
     # In the body of the if statement, print a message saying "Good guess! {guess} is in the word."
     # You will continue with the logic of the check_guess method in the next task. For now, let's create the ask_for_input method.
 
-    def check_guess(self):
-        self.guess.lower()
-        if self.guess in self.word:
-            print(f"Good guess! {self.guess} is in the word")
+    def check_guess(self, guess):
+        guess.lower()
+        if guess in self.word:
+            print(f"Good guess! {guess} is in the word")
             # Task 3
             # Return to your check_guess method and extend it to replace the underscore(s) in the word_guessed with the letter guesssed by the user.
             # In the if block of your check_guess method, after your print statement, do the following:
@@ -37,7 +37,7 @@ class Hangman:
             
             for index, letter in enumerate(self.word_guessed):
                 if letter == self.guess:
-                    self.word_guessed[index] = self.guess
+                    self.word_guessed[index] = guess
             self.num_letters -= 1
         
         # Task 4
@@ -50,9 +50,9 @@ class Hangman:
         
         else:
             self.num_lives -= 1
-            print(f"Sorry, {self.guess} is not in the word.")
+            print(f"Sorry, {guess} is not in the word.")
             print(f" You have {self.num_lives} left.")
-            self.list_of_guesses.append(self.guess)
+            self.list_of_guesses.append(guess)
             
             
     # Task 2
@@ -71,16 +71,16 @@ class Hangman:
     def ask_for_input(self):
         not_correct = True
         while not_correct:
-            self.guess = input("Guess a letter")
-            if len(self.guess) == 1 and self.guess.isalpha:
+            guess = input("Guess a letter")
+            if len(guess) == 1 and self.guess.isalpha:
                 print("Good Guess")
                 not_correct = False
-            elif self.guess in self.list_of_guesses:
+            elif guess in self.list_of_guesses:
                 print("You have already tried this letter")                
-            if len(self.guess) == 1 and self.guess.isalpha and self.guess not in self.list_of_guesses:
-                self.list_of_guesses.append(self.guess)
+            if len(guess) == 1 and guess.isalpha and guess not in self.list_of_guesses:
+                self.list_of_guesses.append(guess)
             else:
-                self.check_guess(self.guess)
+                self.check_guess(guess)
 #Step2
 num_lives = 9
 word_list = ['blueberries', 'raspberries', 'kiwi', 'orange', 'pear']
