@@ -39,6 +39,7 @@ class Hangman:
                 if letter == guess:
                     self.word_guessed[index] = guess
             self.num_letters -= 1
+            print(f"The word is now {self.word_guessed}")
         
         # Task 4
         # Define what happens if the guess is not in the word you are trying to guess.
