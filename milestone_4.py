@@ -25,7 +25,7 @@ class Hangman:
     def check_guess(self, guess):
         guess.lower()
         if guess in self.word:
-            print(f"Good guess! {guess} is in the word")
+            print(f"Good guess! {guess} is in the word.")
             # Task 3
             # Return to your check_guess method and extend it to replace the underscore(s) in the word_guessed with the letter guesssed by the user.
             # In the if block of your check_guess method, after your print statement, do the following:
