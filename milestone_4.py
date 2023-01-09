@@ -50,8 +50,8 @@ class Hangman:
         
         else:
             print(f"Sorry, {guess} is not in the word.")
-            self.num_lives -= 1
-            print(f" You have {self.num_lives} left.")
+            num_lives -= 1
+            print(f" You have {num_lives} left.")
             
             
     # Task 2
