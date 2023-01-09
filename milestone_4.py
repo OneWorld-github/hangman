@@ -49,10 +49,9 @@ class Hangman:
         # Step 3. Lastly, append the guess to the list_of_guesses. Ensure you do this outside the else block so that the letter can be appended to the list_of_guesses in both conditions.
         
         else:
-            self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
+            self.num_lives -= 1
             print(f" You have {self.num_lives} left.")
-            self.list_of_guesses.append(guess)
             
             
     # Task 2
@@ -69,18 +68,17 @@ class Hangman:
     # Step 2. Call the ask_for_input method to test your code.
     # That was a lot! Keep going, you are almost there.
     def ask_for_input(self):
-        not_correct = True
-        while not_correct:
+        while True:
             guess = input("Guess a letter")
-            if len(guess) == 1 and self.guess.isalpha:
-                print("Good Guess")
-                not_correct = False
+            if len(guess) != 1 or not guess.isalpha():
+                print("Invalid letter. Please, enter a single alphabetical character.")
+                break
             elif guess in self.list_of_guesses:
                 print("You have already tried this letter")                
-            if len(guess) == 1 and guess.isalpha and guess not in self.list_of_guesses:
-                self.list_of_guesses.append(guess)
             else:
                 self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+                break
 #Step2
 num_lives = 9
 word_list = ['blueberries', 'raspberries', 'kiwi', 'orange', 'pear']
