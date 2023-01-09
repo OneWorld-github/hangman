@@ -4,12 +4,12 @@ import random
 
 #Task 1
 class Hangman:
-    def __init__(self, word_list):
-        self.word = random.choice(word_list)
+    def __init__(self, num_lives, word_list):
         self.word_list = word_list
-        self.word_guessed = ['_'] * len(self.word)
-        self.num_letters = len(self.word)
-        self.num_lives = 9 # like a cat.
+        self.num_lives = num_lives
+        self.word = random.choice(word_list)
+        self.word_guessed = ['_' for _ in range(len(self.word))]
+        self.num_letters = len(set(self.word))
         self.list_of_guesses = []
         
     #Task2
@@ -82,5 +82,7 @@ class Hangman:
             else:
                 self.check_guess(self.guess)
 #Step2
-new_game = Hangman(word='word', word_list=['a', 'word', 'or', 'two'])
+num_lives = 9
+word_list = ['blueberries', 'raspberries', 'kiwi', 'orange', 'pear']
+new_game = Hangman(num_lives, word_list)
 new_game.ask_for_input()
