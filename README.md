@@ -25,3 +25,5 @@ if the input is 1 letter.
 if the letter has already been tried
 if it is 1 letter and hasn't been tried yet we append to our list of tried letters.
 else we run the check guess
+
+Hope you enjoy the game.  Best of luck with guessing the correct letters.
