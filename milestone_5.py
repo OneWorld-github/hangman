@@ -69,7 +69,7 @@ class Hangman:
                 print("Try another letter ?")        
                 
 def play_game(word_list):
-    num_lives = 9
+    num_lives = 4
     game = Hangman(num_lives, word_list)
     while True:
         if game.num_lives == 0:
