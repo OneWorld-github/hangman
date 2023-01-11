@@ -68,7 +68,8 @@ class Hangman:
             else:
                 print("Try another letter ?")        
                 
-def play_game(num_lives, word_list):
+def play_game(word_list):
+    num_lives = 9
     game = Hangman(num_lives, word_list)
     while True:
         if game.num_lives == 0:
@@ -82,6 +83,5 @@ def play_game(num_lives, word_list):
             print("Welldone, the word was: ", )
             print('Congratulations. You won the game!, The Word Was: ', ''.join(game.word_guessed))
             break
-num_lives = 9
 word_list = ['blueberries', 'raspberries', 'kiwi', 'orange', 'pear']
-play_game(num_lives, word_list)
+play_game(word_list)
